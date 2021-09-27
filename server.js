@@ -4,8 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var flightsRouter = require('./routes/flights');
+require("./config/database")
+
+const indexRouter = require('./routes/index');
+const flightsRouter = require('./routes/flights');
 
 var app = express();
 
