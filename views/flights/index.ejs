@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<%- include('../partials/header') %>
+<ul>
+  <% flightArr.forEach(function(f) { %>
+        <h2><li>Flight Number: <%= f.flightNo %> </li></h2>
+        <li>Airline: <%= f.airline %> </li>
+        <li>Airport: <%= f.airport %> </li>
+        <li>Departure Date: <%= f.departs %> </li><br>
+  <% }) %>
+</ul>
+    <%- include('../partials/footer') %>
