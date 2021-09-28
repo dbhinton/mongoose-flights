@@ -1,5 +1,17 @@
-<%- include('./partials/header') %>
-
-    <a href="/flights/new">New Flight</a>
-    <a href="/flights">All flights</a>
-    <%- include('./partials/footer') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/flights">ALL FLIGHTS</a></li>
+        <li><a href="/flights/new">ADD FLIGHT</a></li>
+      </ul>
+    </nav>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html>

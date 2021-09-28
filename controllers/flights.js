@@ -2,8 +2,9 @@ const Flight = require("../models/flight")
 
 module.exports = {
     new: newFlight,
-    index,
-    create
+    flightSchedule,
+    create,
+    show
 }
 
 function newFlight(req, res) {
@@ -12,14 +13,14 @@ function newFlight(req, res) {
     })
 }
 
-function index(req, res) {
+function flightSchedule(req, res) {
     Flight.find({}, function (err, flightArr) {
         console.log(flightArr, " <- flight documents"); // if this isn't working log out the error
         res.render("flights/index", {
             flightArr: flightArr, // <-- remember the key is the variable name in movies/index
             title: "Listed Flights"
         });
-    });
+    }).sort({ created: 'desc' });
 }
 
 function create(req, res) {
@@ -34,5 +35,11 @@ function create(req, res) {
         res.redirect("/flights");
 
     })
+}
+
+function show(req, res){
+    Flight.findById(req.params.id, function(err, selectedFlight){
+        res.render("flights/show", {title: "Flight", selectedFlight})
+    });
 }
 
